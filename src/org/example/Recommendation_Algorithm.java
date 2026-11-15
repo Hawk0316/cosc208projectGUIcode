@@ -29,19 +29,6 @@ public class Recommendation_Algorithm {
     //Holds which variable will have the highest weighted score
     private int[] priorities = new int[4];
 
-    // Checks if the priorities were already entered through the GUI
-    private boolean guiPrioritiesSet = false;
-
-    //Gets the priority rankings from the GUI and stores them for the recommendation algorithm
-    public void setGUIPriorities(int fare, int walking, int travel, int weather) {
-        priorities[0] = fare;
-        priorities[1] = walking;
-        priorities[2] = travel;
-        priorities[3] = weather;
-
-        guiPrioritiesSet = true;
-    }
-
     private int[] weightedScore = new int[4];
 
     //These 4 arraylists hold all of the vehicles that will be compared and recommended
@@ -55,6 +42,19 @@ public class Recommendation_Algorithm {
 
     //input from Bus_Train_Input class
     private Bus_Train_Input input;
+
+    // checks if priorities were entered through GUI
+    private boolean guiPrioritiesSet = false;
+
+    // gets priority rankings from GUI
+    public void setGUIPriorities(int fare, int walking, int travel, int weather) {
+        priorities[0] = fare;
+        priorities[1] = walking;
+        priorities[2] = travel;
+        priorities[3] = weather;
+
+        guiPrioritiesSet = true;
+    }
 
 
     public static void main(String[] args){
@@ -81,9 +81,9 @@ public class Recommendation_Algorithm {
                 "Fare", "Walking Time", "Travel Time", "Weather"
         };
 
-        // Only asks for priorities in the console if they were not set in the GUI,
-        // so console and GUI can use the same recommendation algorithm
+        // asks for priorities in the console if they weren't entered in the GUI
         if (!guiPrioritiesSet) {
+
             for (int i = 0; i < priorities.length; i++) {
                 boolean validScore;
 
@@ -407,7 +407,9 @@ public class Recommendation_Algorithm {
         //Resets scores before scoring all transports together
 
         for (Transportation transport : totalTransport) {
+
             transport.resetScore();
+
         }
 
 

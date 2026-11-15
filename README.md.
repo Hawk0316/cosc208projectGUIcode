@@ -1,0 +1,58 @@
+DecisionForge AI:
+
+DecisionForge AI is a Java program that uses logic to help users make decisions based on the information they enter. The project includes two scenarios:
+
+Scenario A – CampusRoute: Helps the user decide which transportation option is best based on their budget, schedule, weather, and preferences.
+
+Scenario B – CoursePath: Checks whether a student meets the requirements to register for a course.
+
+Features: The program uses Java Swing for the GUI, this allows users to interact with the program through buttons, text fields, dropdown menus, etc, instead of typing everything into the console.
+
+The program includes:
+- A main menu to choose between Scenario A and Scenario B.
+- Transportation recommendations based on the user's information.
+- Questions to check whether a student can register for a course.
+- Truth tables to show different combinations of conditions.
+- Expression trees with preorder, inorder, and postorder traversals.
+- A decision tree for Scenario A.
+- Knowledge graphs for both scenarios.
+- Separate windows to display results and explanations.
+
+Installation and Setup:
+- Download or copy the project files from GitHub.
+- Open the project in IntelliJ IDEA or another Java IDE.
+- Make sure Java is installed and all the required classes are included.
+- Run the GUI class in the org.example package.
+- The main menu should appear, allowing you to choose between the two scenarios.
+
+How to Use:
+Scenario A – CampusRoute:
+- Select Scenario A from the main menu.
+- Enter your budget, departure time, arrival deadline, and weather.
+- Enter the fares, walking times, travel times, and operating status for the bus, train, and backup ride.
+- Choose your priorities for fare, walking time, travel time, and weather. Each priority number can only be used once.
+- Click Continue to see the results.
+- You can also click the buttons to view the truth tables, expression trees, decision tree, and knowledge graph.
+- Example: A user has a budget of $20 and needs to get to campus by 9:00 AM. The program checks the transportation options and recommends one based on the information and priorities entered.
+
+Scenario B – CoursePath:
+- Select Scenario B from the main menu.
+- Answer the four Yes/No questions about prerequisites, seat availability, registration holds, and deadlines.
+- The program checks the answers to determine whether the student can register.
+- The results appear in another window, showing which requirements were met and what the student should do next.
+- You can also view the truth table, expression tree, knowledge graph, and verification checklist.
+- Example: If a student completed the prerequisites, a seat is available, there is no registration hold, and the deadline is still open, the program will say the student is eligible to register.
+
+Limitations:
+- Scenario A uses transportation information entered by the user instead of live transportation information. So if a bus is not working or something, the program won't know until the user has updated that information.
+- Scenario B is not connected to an actual university registration system. So it can't check automatically if a class still has available seats, if they have a registration hold, etc,  he user has to provide that information.
+- The results depend on the information the user enters. If the user enters incorrect information, the program may give inaccurate outputs.
+- Users must enter valid numbers and times for Scenario A.
+
+Technologies Used:
+- Java
+- Java Swing
+
+Contributors:
+- COSC 208 – Group 8
+The project was completed as a group, with different members working on the two scenarios and GUI.

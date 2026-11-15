@@ -2,11 +2,6 @@ package org.example;
 
 import java.util.*;
 
-/**
- * One node of a propositional-logic expression tree.
- * Leaves (VAR) are propositions like "T" or "F"; internal nodes are AND / OR / NOT.
- * The SAME tree is used for evaluation, traversals, truth tables and explanations.
- */
 public class LogicNode {
 
     public enum Op { VAR, AND, OR, NOT }
@@ -14,9 +9,9 @@ public class LogicNode {
     private final Op op;
 
     private final String name;
-    // only used when op == VAR
+
     private final LogicNode left;
-    // NOT uses only 'left'
+
     private final LogicNode right;
 
     private LogicNode(Op op, String name, LogicNode left, LogicNode right) {
@@ -51,7 +46,7 @@ public class LogicNode {
 
     }
 
-    /** a ∧ b ∧ c ∧ ... built left-associatively: ((a ∧ b) ∧ c) ∧ ... */
+
     public static LogicNode allOf(LogicNode first, LogicNode... rest) {
 
         LogicNode result = first;
@@ -65,7 +60,7 @@ public class LogicNode {
         return result;
     }
 
-    // ---------- Evaluation ----------
+
     public boolean eval(Map<String, Boolean> env) {
         switch (op) {
             case VAR: {
@@ -85,7 +80,7 @@ public class LogicNode {
         }
     }
 
-    // ---------- Traversals ----------
+
     public List<String> preorder() {
         List<String> out = new ArrayList<>();
 
@@ -102,7 +97,7 @@ public class LogicNode {
         if (right != null) right.preorder(out);
     }
 
-    /** Left, node, right. NOT has one child, so it is written before it: ¬ x. */
+
     public List<String> inorder() {
         List<String> out = new ArrayList<>();
 
@@ -144,8 +139,7 @@ public class LogicNode {
         out.add(label());
     }
 
-    // ---------- Introspection (feeds truth table / explanations) ----------
-    /** All proposition names in this tree, in order of first appearance. */
+
     public Set<String> variables() {
 
         Set<String> out = new LinkedHashSet<>();
@@ -164,11 +158,7 @@ public class LogicNode {
         if (right != null) right.collectVariables(out);
     }
 
-    /**
-     * For a rule that is a pure chain of ANDs, returns which propositions were false.
-     * That is exactly the "why it failed" list. (OR / NOT nodes are skipped on purpose;
-     * explaining those needs a richer approach.)
-     */
+
     public List<String> failedPropositions(Map<String, Boolean> env) {
 
         List<String> out = new ArrayList<>();
@@ -191,21 +181,31 @@ public class LogicNode {
 
     public String label() {
         switch (op) {
+
             case VAR: return name;
+
             case NOT: return "NOT";
+
             case AND: return "AND";
+
             default:  return "OR";
+
         }
     }
 
-    /** Fully parenthesised, e.g. ((T AND F) AND D). */
+
     @Override
     public String toString() {
         switch (op) {
+
             case VAR: return name;
+
             case NOT: return "NOT " + left;
+
             case AND: return "(" + left + " AND " + right + ")";
+
             default:  return "(" + left + " OR " + right + ")";
+
         }
     }
 }

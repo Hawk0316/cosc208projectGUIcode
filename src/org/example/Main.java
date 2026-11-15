@@ -1,6 +1,9 @@
 package org.example;
+import org.example.InvalidInputException;
 //import org.example.InvalidWeatherException;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -38,7 +41,6 @@ public class Main {
            /*The try catch will catch incorrect inputs from any of the endloop String inputs
            The While loop within each will loop as many times as needed if the user says "yes" and will
            stop the while loop if the user types in "no"
-
             */
             try {
                 System.out.println("\nDo you want to add a bus? yes/no: ");
@@ -95,6 +97,7 @@ public class Main {
             catch (InputMismatchException e){
 
                 System.out.println("\nPlease type yes or no!");
+
                 userInput.nextLine();
 
             } catch (InvalidInputException e) {

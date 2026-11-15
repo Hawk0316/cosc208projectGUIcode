@@ -3,11 +3,9 @@ DecisionForge AI:
 DecisionForge AI is a Java program that uses logic to help users make decisions based on the information they enter. The project includes two scenarios:
 
 Scenario A – CampusRoute: Helps the user decide which transportation option is best based on their budget, schedule, weather, and preferences.
-
 Scenario B – CoursePath: Checks whether a student meets the requirements to register for a course.
 
 Features: The program uses Java Swing for the GUI, this allows users to interact with the program through buttons, text fields, dropdown menus, etc, instead of typing everything into the console.
-
 The program includes:
 - A main menu to choose between Scenario A and Scenario B.
 - Transportation recommendations based on the user's information.

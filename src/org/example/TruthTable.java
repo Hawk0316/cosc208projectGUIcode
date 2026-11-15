@@ -5,7 +5,7 @@ import java.util.*;
 /** Builds and prints the truth table for any expression tree. */
 public class TruthTable {
 
-    /** Prints every combination of the rule's propositions (2^n rows) with the result. */
+    /** Prints every combination of the rule's propositions  */
     public static void print(String ruleName, LogicNode rule) {
         List<String> vars = new ArrayList<>(rule.variables());
 
